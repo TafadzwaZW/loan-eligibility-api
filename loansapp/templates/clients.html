@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Client Dashboard{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4"><i class="fas fa-database"></i> Mock Data Overview</h2>
+    <p class="text-muted">
+        Below is the mock dataset used by the Loan Eligibility API. 
+        This shows what the Salary Verification and Credit Bureau services return.
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Salary Verification Data</h4>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>National ID</th>
+                        <th>Monthly Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for id, record in salary_data.items %}
+                    <tr>
+                        <td>{{ id }}</td>
+                        <td>{{ record.monthly_salary }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <h4>Credit Bureau Data</h4>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>National ID</th>
+                        <th>Credit Score</th>
+                        <th>Active Defaults</th>
+                        <th>Active Loans</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for id, record in credit_data.items %}
+                    <tr>
+                        <td>{{ id }}</td>
+                        <td>{{ record.credit_score }}</td>
+                        <td>{{ record.active_defaults }}</td>
+                        <td>{{ record.active_loans }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
