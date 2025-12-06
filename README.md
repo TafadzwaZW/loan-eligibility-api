@@ -42,6 +42,17 @@ Eligibility Rules
 
 •	Declined applications include reasons.
 ________________________________________
+
+Loan Approval Logic
+
+The system only approves loan applications for clients whose National ID is already registered in the system.
+
+•	When a user submits an application, the backend checks the provided National ID against the mock salary and credit bureau records.
+
+•	If the ID is not found, the application is automatically rejected.
+
+•	To view the list of supported IDs, navigate to the Clients tab (/clients), which displays all mock records currently available for testing.
+________________________________________
 Running Locally
 1.	Clone the repo: git clone https://github.com/TafadzwaZW/loan-eligibility-api.git
 2.	cd loan-eligibility-api
